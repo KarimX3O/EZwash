@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>📦 لائحة القطع</title>
+  <style>
+    body {
+      font-family: "Tahoma", sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+    }
+    h2 {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #f1f1f1;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 لائحة القطع المتوفرة</h1>
+
+  <h2>🧵 التحداد</h2>
+  <table id="tableM">
+    <tr>
+      <th>القطعة</th>
+      <th>الثمن (درهم)</th>
+    </tr>
+  </table>
+
+  <h2>🧼 التصبين + التحداد</h2>
+  <table id="tableS">
+    <tr>
+      <th>القطعة</th>
+      <th>الثمن (درهم)</th>
+    </tr>
+  </table>
+
+  <h2>🎨 الصباغة</h2>
+  <table id="tableSB">
+    <tr>
+      <th>القطعة</th>
+      <th>الثمن (درهم)</th>
+    </tr>
+  </table>
+
+  <!-- هنا نربط مع script.js -->
+  <script src="script.js"></script>
+
+  <script>
+    // دالة لملء الجدول بأي لائحة
+    function fillTable(list, tableId) {
+      const table = document.getElementById(tableId);
+      list.forEach(item => {
+        let row = `<tr><td>${item.name}</td><td>${item.pric}</td></tr>`;
+        table.innerHTML += row;
+      });
+    }
+
+    // استعمال اللوائح المستوردة من script.js
+    fillTable(TikitM, "tableM");
+    fillTable(TikitS, "tableS");
+    fillTable(TikitSB, "tableSB");
+  </script>
+</body>
+</html>
